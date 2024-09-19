@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: book-catalog
-          image: s2233535784registry.azurecr.io/book-catalog:1
-          imagePullPolicy: IfNotPresent
+          image: s2233535784registry.azurecr.io/book-catalog:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           env:
@@ -34,7 +34,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 4001
+      targetPort: 80 #changed to match container port
 
 ---
 apiVersion: apps/v1
@@ -53,8 +53,8 @@ spec:
     spec:
       containers:
         - name: inventory-management
-          image: s2233535784registry.azurecr.io/inventory_management:1
-          imagePullPolicy: IfNotPresent
+          image: s2233535784registry.azurecr.io/inventory_management:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           env:
@@ -72,4 +72,4 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 4002
+      targetPort: 80

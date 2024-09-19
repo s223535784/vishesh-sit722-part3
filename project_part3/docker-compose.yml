@@ -3,7 +3,7 @@ version: '3'
 services:
 
   book_catalog:
-    image: book_catalog
+    image: book_catalog:latest
     build: 
       context: ./book_catalog
       dockerfile: Dockerfile
@@ -13,10 +13,10 @@ services:
     environment:
       - PORT=80
       - DATABASE_URL=postgresql://sit722_part3_i7wo_user:HO7F1jE4yrrQZV3N5nTz4ajhpkg9J5wR@dpg-crfrr7qj1k6c7397jah0-a.oregon-postgres.render.com/sit722_part3_i7wo
-    restart: "no"
+    restart: "on-failure"
 
   inventory_management:
-    image: inventory_management
+    image: inventory_management:latest
     build: 
       context: ./inventory_management
       dockerfile: Dockerfile
@@ -26,4 +26,4 @@ services:
     environment:
       - PORT=80
       - DATABASE_URL=postgresql://sit722_part3_i7wo_user:HO7F1jE4yrrQZV3N5nTz4ajhpkg9J5wR@dpg-crfrr7qj1k6c7397jah0-a.oregon-postgres.render.com/sit722_part3_i7wo
-    restart: "no"
+    restart: "on-failure"
